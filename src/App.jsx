@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Services from "./components/Sections/Services/Services";
 import About from "./components/Sections/About/About";
 import WhosClicking from "./components/Sections/WhosClicking/WhosClicking";
+import OurServices from "./components/Sections/OurServices/OurServices";
 
 function App() {
   const [showIntro, setShowIntro] = useState(true);
@@ -15,9 +16,9 @@ function App() {
       {!showIntro && (
         <div>
           < Navbar />
-          {/* < Services /> */}
           < About />
           < WhosClicking />
+          < OurServices />
         </div>
       )}
     </>
