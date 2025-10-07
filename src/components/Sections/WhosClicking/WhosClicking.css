@@ -1,0 +1,35 @@
+.whosclicking-section {
+  width: 100vw;   /* lock to viewport width */
+  max-width: 100%;
+  min-height: 100vh; /* takes full screen height */
+  /* padding: 80px 20px; */
+  background: linear-gradient(to bottom, #691518, #000000);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.whosclicking-title {
+  font-family: "Oswald", sans-serif;
+  font-weight: 700; /* Bold */
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.whosclicking-subtitle {
+  font-family: "Prata", serif;
+  font-weight: 400; /* Regular */
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.whosclicking-text {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400; /* Regular */
+  font-size: 15px;
+  max-width: 700px;
+  line-height: 1.6;
+}

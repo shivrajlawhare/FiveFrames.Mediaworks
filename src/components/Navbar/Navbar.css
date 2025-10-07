@@ -1,0 +1,114 @@
+.navbar {
+    position: relative;
+    padding-top: 6px;
+    background-color: #691518;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-shape {
+    position: absolute;
+    top: 0;             /* adjust as needed */
+    left: 0;
+    width: 100%;        /* make full width for easier centering */
+    height: 160px; 
+    z-index: 0;
+}
+
+.navbar-shape-rect1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;         /* make it full width */
+    height: 60px;
+    background-color: #691518;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-shape-circle {
+    width: 150px;
+    height: 150px;
+    background-color: #691518;
+    border-radius: 50%;
+    position: absolute;
+    top: -60px;              /* circle starts at top of navbar-shape */
+    left: 50%;           /* center horizontally */
+    transform: translateX(-50%); /* actually center it */
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-shape-rect2 {
+    position: absolute;
+    top: 0%;
+    left: 24%;
+    background-color: #691518;
+    height: 60px;
+    width:60%;
+}
+
+.navbar-logo{
+    height: 30px;
+    position: relative;
+    z-index: 1;
+    margin-top: 15px;
+}
+
+.navbar-menu {
+    position: relative;
+    z-index: 1;
+    height: 30px;
+    margin-right: 20px;
+}
+
+.navbar-none {
+    width: 52px;
+    height: 50px;
+}
+
+.navbar-aboutUs , .navbar-services, .navbar-portfolio, .navbar-contactUs {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .navbar-shape-rect2 {
+    width: 50%;
+  }
+
+  .navbar-aboutUs , .navbar-services, .navbar-portfolio, .navbar-contactUs {
+    display: block;
+    position: relative;
+    z-index: 4;
+    font-family: "Oswald", sans-serif;
+    font-weight: 300; 
+    font-size: 24px;
+    color: #FFF2EA;
+  }
+
+  .navbar-shape-rect1 {
+    height: 70px;
+  }
+
+  .navbar-shape-circle {
+    top: -50px;
+  }
+
+  .navbar-shape-rect2 {
+    height: 70px;
+  }
+
+  .navbar {
+    justify-content: space-around;
+    padding-top: 13px;
+  }
+
+  .navbar-logo {
+    margin-top: 5px;
+    margin-left: 15px;
+    height: 40px;
+  }
+
+  .navbar-menu, .navbar-none {
+    display: none;
+  }
+}

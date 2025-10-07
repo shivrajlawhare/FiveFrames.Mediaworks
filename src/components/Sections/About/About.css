@@ -1,0 +1,59 @@
+.about-section {
+  position: relative;
+  height: 100vh; /* full screen */
+  width: 100%;
+  background: url("/bg1.jpg") no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0; /* behind navbar */
+}
+
+.about-overlay {
+  text-align: justify;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.about-title {
+  font-family: "Oswald", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8); /* drop shadow */
+}
+
+/* Ensure navbar stays above */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.about-description {
+    width: 68%;
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400; /* Regular */
+    font-size: 9px;
+}
+
+@media screen and (min-width: 768px){
+    .about-description {
+        font-size: 20px;
+        width: 35%;
+    }
+    
+    .about-title{
+        font-size: 70px;
+        margin: 10px 0px;
+    }
+
+    .about-overlay{
+        align-items: start;
+        padding-left: 60px;
+    }
+}
