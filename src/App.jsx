@@ -5,6 +5,9 @@ import Services from "./components/Sections/Services/Services";
 import About from "./components/Sections/About/About";
 import WhosClicking from "./components/Sections/WhosClicking/WhosClicking";
 import OurServices from "./components/Sections/OurServices/OurServices";
+import SlideIntoInbox from "./components/Sections/SlideIntoOurInbox/SlideIntoOurInbox";
+import SWHTDesltop from "./components/Sections/SWHT-Desktop/SWHT-Desltop";
+import SWHTMobile from "./components/Sections/SWHT-Mobile/SWHT-Mobile";
 
 function App() {
   const [showIntro, setShowIntro] = useState(true);
@@ -15,10 +18,27 @@ function App() {
 
       {!showIntro && (
         <div>
-          < Navbar />
-          < About />
-          < WhosClicking />
-          < OurServices />
+          <Navbar />
+
+          <section id="about">
+            <About />
+          </section>
+
+          <WhosClicking />
+
+          <section id="services">
+            <Services />
+            <OurServices />
+          </section>
+
+          <section id="swht">
+            <SWHTDesltop />
+            <SWHTMobile />
+          </section>
+
+          <section id="contact">
+            <SlideIntoInbox />
+          </section>
         </div>
       )}
     </>

@@ -3,38 +3,35 @@ import "./OurServices.css";
 
 const OurServices = () => {
   const sectionRef = useRef(null);
-  const [phase, setPhase] = useState("idle"); 
-  // "idle" → "in" → "out"
+  const [phase, setPhase] = useState("idle"); // "idle" → "in" → "out"
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const rect = entry.boundingClientRect;
-          const windowHeight = window.innerHeight;
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
 
-          // Entering (scrolling into view)
-          if (entry.isIntersecting && rect.top < windowHeight * 0.5) {
-            setPhase("in");
-          }
+      const rect = sectionRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const sectionMidpoint = rect.top + rect.height / 2;
 
-          // Scrolling out (past bottom half)
-          if (rect.top < -entry.target.offsetHeight * 0.3) {
-            setPhase("out");
-          }
+      // 1️⃣ Trigger INTRO when section midpoint enters viewport
+      if (sectionMidpoint >= 0 && sectionMidpoint <= windowHeight) {
+        if (phase !== "in") setPhase("in");
+      }
 
-          // Reset if scrolled back above
-          if (rect.top > windowHeight) {
-            setPhase("idle");
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
+      // 2️⃣ Trigger OUTRO when section midpoint moves above viewport (out of view)
+      if (sectionMidpoint < 0) {
+        if (phase !== "out") setPhase("out");
+      }
 
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
+      // 3️⃣ Reset when section is fully below viewport
+      if (rect.top > windowHeight) {
+        if (phase !== "idle") setPhase("idle");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [phase]);
 
   const images = [
     { src: "/3.jpg", text: "Photography" },

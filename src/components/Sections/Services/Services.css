@@ -1,64 +1,87 @@
 .interactive-services {
-  display: flex;
-  width: 100%;
-  height: 700px; /* adjust as needed */
-  overflow: hidden;
+  display: none;
 }
-
-.image-wrapper {
-  flex: 1;
-  display: flex;
-  overflow: hidden;
-  transition: flex 0.5s ease-in-out;
-  position: relative;
-}
-
-/* Expands hovered wrapper */
-.image-wrapper:hover {
-  flex: 3;
-}
-
-/* Image inside wrapper */
-.image-item {
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  /* transition: transform 0.5s ease-in-out; */
-}
-
-/* Optional zoom on hover */
-/* .image-wrapper:hover .image-item {
-  transform: scale(1.05);
-} */
-
-/* Overlay effect on non-hovered items */
-/* .interactive-services:hover .image-wrapper::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 0, 0, 0.5); 
-  transition: opacity 0.3s ease-in-out;
-  opacity: 1;
-  pointer-events: none;
-} */
-
-/* Remove overlay from hovered item */
-/* .image-wrapper:hover::after {
-  opacity: 0;
-} */
-
-/* Responsive - stack vertically on small screens */
-@media (max-width: 768px) {
+/* Responsive stacking */
+@media screen and (min-width: 768px) {
   .interactive-services {
-    flex-direction: column;
-    height: auto;
+    display: flex;
+    width: 100%;
+    height: 700px;
+    overflow: hidden;
+    background-color: #691518; /* optional fallback background */
   }
 
+  /* Each section */
   .image-wrapper {
-    height: 200px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    transition: flex 0.5s ease-in-out, transform 0.5s ease-in-out;
+    overflow: hidden;
+    cursor: pointer;
   }
+
+  /* When hovered image expands */
+  .image-wrapper:hover {
+    flex: 3;
+    transform: scale(1.00);
+  }
+
+  /* Image background */
+  .image-item {
+    width: 100%;
+    height: 85%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+    position: relative;
+  }
+
+  /* Overlay (always present) */
+  .image-item::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(105, 21, 24, 0.55); /* subtle dark overlay */
+    transition: opacity 0.4s ease;
+    opacity: 1;
+  }
+
+  /* Remove overlay only from hovered image */
+  .image-wrapper:hover .image-item::after {
+    opacity: 0;
+  }
+
+  /* Dim other overlays when hovering */
+  .interactive-services:hover .image-wrapper:not(:hover) .image-item::after {
+    opacity: 0.7;
+  }
+
+  /* Text label below each image */
+  .service-text {
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    font-family: "Oswald", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: #fff2ea;
+    text-transform: uppercase;
+    transition: transform 0.5s ease, font-size 0.5s ease;
+    margin: 0px;
+    /* background-color: #691518; */
+  }
+
+  /* Animate text with image */
+  .image-wrapper:hover .service-text {
+    transform: scale(1.1) translateY(-10px);
+    font-size: 20px;
+  }
+
 }

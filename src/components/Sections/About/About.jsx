@@ -4,11 +4,19 @@ import "./About.css";
 const About = () => {
   return (
     <div className="about-section">
+      {/* Overlay layer */}
+      <div className="about-bg-overlay"></div>
+
+      {/* Text content on top */}
       <div className="about-overlay">
         <h1 className="about-title">FiveFrames.Mediaworks</h1>
         <div className="about-description">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora, possimus ipsam alias sed, suscipit, debitis consequuntur voluptatum ducimus est magni optio laborum fuga asperiores quo quae inventore numquam officia? Inventore?
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora,
+          possimus ipsam alias sed, suscipit, debitis consequuntur voluptatum
+          ducimus est magni optio laborum fuga asperiores quo quae inventore
+          numquam officia? Inventore?
         </div>
+        <button className="about-button">Contact Now</button>
       </div>
     </div>
   );

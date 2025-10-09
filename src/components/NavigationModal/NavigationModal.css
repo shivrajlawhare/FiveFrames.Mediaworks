@@ -1,0 +1,46 @@
+.nav-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(105, 21, 24, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 1000;
+  padding-top: 100px;
+  transition: opacity 0.3s ease;
+}
+
+.nav-modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 80%;
+  max-width: 300px;
+}
+
+.nav-modal-btn {
+  background: transparent;
+  border: 2px solid #FFF2EA;
+  color: #FFF2EA;
+  font-family: "Oswald", sans-serif;
+  font-size: 22px;
+  padding: 12px 0;
+  border-radius: 6px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-modal-btn:hover {
+  background-color: #FFF2EA;
+  color: #691518;
+}
+
+@media screen and (min-width: 768px) {
+  .nav-modal {
+    display: none;
+  }
+}

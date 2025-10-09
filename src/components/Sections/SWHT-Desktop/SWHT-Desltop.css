@@ -1,0 +1,87 @@
+.swht-desktop-main {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .swht-desktop-main {
+    display: block;
+    background: #691518;
+    width: 100%;
+    overflow: hidden;
+    padding: 60px 0;
+  }
+
+  .swht-desktop-heading {
+    font-family: "Oswald", sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    color: #FFF2EA;
+    width: 100%;
+    text-align: left; /* changed from center */
+    margin-left: 70px; /* added for left alignment */
+    margin-bottom: 30px;
+  }
+
+  .swht-desktop-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 270px);
+    gap: 10px;
+    max-width: calc(100% - 140px); /* ensures 70px space on both sides */
+    margin: 0 auto;
+    padding: 0 70px; /* updated padding */
+  }
+
+  /* Desktop grid placement */
+  .swht-desktop-item1 { grid-column: 1 / 3; grid-row: 1 / 2; }
+  .swht-desktop-item2 { grid-column: 1 / 2; grid-row: 2 / 3; }
+  .swht-desktop-item3 { grid-column: 2 / 3; grid-row: 2 / 3; }
+  .swht-desktop-item4 { grid-column: 3 / 4; grid-row: 1 / 3; }
+  .swht-desktop-item5 { grid-column: 4 / 5; grid-row: 1 / 3; }
+
+  /* --- FRAME STYLING --- */
+  .swht-desktop-grid-item {
+    position: relative;
+    overflow: hidden; /* keeps scaled image inside frame */
+    border-radius: 6px;
+    opacity: 0;
+    transition: transform 0.8s cubic-bezier(.2,.9,.2,1), opacity 0.6s ease;
+    will-change: transform, opacity;
+  }
+
+  /* Common image styling */
+  .swht-desktop-grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease, filter 0.4s ease;
+  }
+
+  /* Hover zoom (image scales inside frame) */
+  .swht-desktop-grid-item:hover img {
+    transform: scale(1.07);
+    filter: brightness(1.1);
+  }
+
+  /* Initial transform for animations */
+  .swht-desktop-item1 { transform: translateX(-100px); opacity: 0; }
+  .swht-desktop-item2 { transform: translateX(-100px); opacity: 0; }
+  .swht-desktop-item3 { transform: translateY(100px); opacity: 0; }
+  .swht-desktop-item4 { transform: translateX(100px); opacity: 0; }
+  .swht-desktop-item5 { transform: translateX(100px); opacity: 0; }
+
+  /* --- INTRO ANIMATIONS --- */
+  .swht-desktop-item1.animate-in { transform: translateX(0); opacity: 1; }
+  .swht-desktop-item2.animate-in { transform: translateX(0); opacity: 1; }
+  .swht-desktop-item3.animate-in { transform: translateY(0); opacity: 1; }
+  .swht-desktop-item4.animate-in { transform: translateX(0); opacity: 1; }
+  .swht-desktop-item5.animate-in { transform: translateX(0); opacity: 1; }
+
+  /* --- OUTRO ANIMATIONS --- */
+  .swht-desktop-item1.animate-out { transform: translateX(-100px); opacity: 0; }
+  .swht-desktop-item2.animate-out { transform: translateX(-100px); opacity: 0; }
+  .swht-desktop-item3.animate-out { transform: translateY(100px); opacity: 0; }
+  .swht-desktop-item4.animate-out { transform: translateX(100px); opacity: 0; }
+  .swht-desktop-item5.animate-out { transform: translateX(100px); opacity: 0; }
+}

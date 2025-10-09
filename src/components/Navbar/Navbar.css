@@ -9,10 +9,10 @@
 
 .navbar-shape {
     position: absolute;
-    top: 0;             /* adjust as needed */
+    top: 0;
     left: 0;
-    width: 100%;        /* make full width for easier centering */
-    height: 160px; 
+    width: 100%;
+    height: 160px;
     z-index: 0;
 }
 
@@ -20,7 +20,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;         /* make it full width */
+    width: 100%;
     height: 60px;
     background-color: #691518;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
@@ -32,9 +32,9 @@
     background-color: #691518;
     border-radius: 50%;
     position: absolute;
-    top: -60px;              /* circle starts at top of navbar-shape */
-    left: 50%;           /* center horizontally */
-    transform: translateX(-50%); /* actually center it */
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
 
@@ -44,10 +44,10 @@
     left: 24%;
     background-color: #691518;
     height: 60px;
-    width:60%;
+    width: 60%;
 }
 
-.navbar-logo{
+.navbar-logo {
     height: 30px;
     position: relative;
     z-index: 1;
@@ -59,6 +59,7 @@
     z-index: 1;
     height: 30px;
     margin-right: 20px;
+    cursor: pointer;
 }
 
 .navbar-none {
@@ -66,7 +67,10 @@
     height: 50px;
 }
 
-.navbar-aboutUs , .navbar-services, .navbar-portfolio, .navbar-contactUs {
+.navbar-aboutUs,
+.navbar-services,
+.navbar-portfolio,
+.navbar-contactUs {
     display: none;
 }
 
@@ -75,14 +79,28 @@
     width: 50%;
   }
 
-  .navbar-aboutUs , .navbar-services, .navbar-portfolio, .navbar-contactUs {
+  .navbar-aboutUs,
+  .navbar-services,
+  .navbar-portfolio,
+  .navbar-contactUs {
     display: block;
     position: relative;
     z-index: 4;
     font-family: "Oswald", sans-serif;
-    font-weight: 300; 
+    font-weight: 300;
     font-size: 24px;
     color: #FFF2EA;
+    cursor: pointer; /* ✅ makes them clickable */
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+
+  /* ✅ subtle hover feedback */
+  .navbar-aboutUs:hover,
+  .navbar-services:hover,
+  .navbar-portfolio:hover,
+  .navbar-contactUs:hover {
+    color: #ffffff;
+    transform: scale(1.05);
   }
 
   .navbar-shape-rect1 {
@@ -108,7 +126,8 @@
     height: 40px;
   }
 
-  .navbar-menu, .navbar-none {
+  .navbar-menu,
+  .navbar-none {
     display: none;
   }
 }
